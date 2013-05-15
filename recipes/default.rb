@@ -19,7 +19,7 @@
 #
 
 package "fake-procps" do
-  action :install
+  action node["osops"]["do_package_upgrades"] == true ? :upgrade : :install
   only_if { platform?("fedora") }
 end
 
